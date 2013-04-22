@@ -1,0 +1,16 @@
+<apex:page controller="WarehouseDataInstall">
+    <apex:form >
+    <h1>Warehouse Schema Data Install</h1>
+    <apex:outputPanel id="page">
+    <apex:outputPanel rendered="{!NOT(hasData)}" >
+        <P>If you are using the Warehouse application for the first time, you can use the button below to quickly create test data.</P>
+        <HR />
+        <apex:commandButton action="{!createData}" value="Create Data" rerender="page" />
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!hasData}" >
+        <P>Data has been successfully installed.</P>
+    </apex:outputPanel>
+    </apex:outputPanel>
+
+    </apex:form>
+</apex:page>
