@@ -25,7 +25,7 @@
         <name>CustomLabels</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Account</members>
         <name>CustomObject</name>
     </types>
     <types>
