@@ -1,5 +1,5 @@
-trigger MerchandiseTrigger on Merchandise__c (before update) {
-	
+trigger MerchandiseTrigger on Merchandise__c (after update) {
+
 	for (Merchandise__c merchandise : [SELECT
 										Id,
 										(SELECT
@@ -12,10 +12,11 @@ trigger MerchandiseTrigger on Merchandise__c (before update) {
 										FROM
 											Merchandise__c
 										WHERE
+											Status__c = 'Withdrawn' AND
 											Id IN :Trigger.new]){
 		
-		if (merchandise.Line_Items__r.size() > 0 && Trigger.newMap.get(merchandise.Id).Status__c == 'Withdrawn'){
-			Trigger.newMap.get(merchandise.Id).Status__c.addError('You have open orders using this merchandise, close the orders first!');
+		if (merchandise.Line_Items__r.size() > 0 && Trigger.newMap.get(merchandise.Id).Status__c <> Trigger.oldMap.get(merchandise.Id).Status__c){
+			Trigger.newMap.get(merchandise.Id).addError('You have open orders using this merchandise, close the orders first!');
 		}
 	}
 }
