@@ -1,1 +1,9 @@
-Git Project for Intro to Apex talk from London Customer Company Tour 2013
+Git Project for the 'Intro to Apex' talk
+
+The project shows how you how to create a custom Apex validation in an Apex Trigger and the test class to test the trigger code.
+
+Originally presented at the London Customer Company Tour 2013:
+Francis Pindar (@radnip)
+Peter Chittum (@pchittum)
+
+Also presented at the New York Customer Company Tour
